@@ -10,3 +10,4 @@ Pillow
 
 commonregex==1.5.4
 requests==2.32.5
+pytz
