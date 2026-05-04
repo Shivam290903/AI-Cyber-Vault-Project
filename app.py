@@ -206,7 +206,7 @@ def scan_content(text):
         leaks.append("PAN Card")
 
     # Aadhaar (fixed)
-    if re.search(r'\d{4}[\s-]?\d{4}[\s-]?\d{4}', text):
+    if re.search(r'\b[2-9]{1}[0-9]{3}[\s-]?[0-9]{4}[\s-]?[0-9]{4}\b', text):
         leaks.append("Aadhaar Number")
 
     # Email
