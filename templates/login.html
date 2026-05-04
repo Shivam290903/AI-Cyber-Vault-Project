@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Vault | Secure Login</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+:root {
+    --bg-main: #020617;
+    --bg-card: rgba(15, 23, 42, 0.75);
+    --primary: #14f1d9;
+    --secondary: #8b5cf6;
+    --danger: #ef4444;
+    --text-main: #e6edf3;
+    --text-muted: #94a3b8;
+}
+
+/* ===== BODY ===== */
+body {
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: var(--text-main);
+}
+
+/* ===== LOGIN BOX ===== */
+.login-box {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    transition: 0.3s;
+}
+
+.login-box:hover {
+    transform: translateY(-5px);
+}
+
+/* ===== HEADINGS ===== */
+.title {
+    font-weight: 700;
+    background: linear-gradient(90deg, #14f1d9, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== INPUTS ===== */
+.form-control {
+    background: rgba(2,6,23,0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-main);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    background: rgba(2,6,23,0.9);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(20,241,217,0.3);
+    color: var(--text-main);
+}
+
+/* Placeholder fix */
+::placeholder {
+    color: #9ca3af !important;
+    opacity: 1;
+}
+
+/* ===== BUTTON ===== */
+.btn-primary {
+    background: linear-gradient(135deg, #14f1d9, #22c55e);
+    border: none;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(20,241,217,0.5);
+}
+
+/* ===== ALERT ===== */
+.alert {
+    background: rgba(239,68,68,0.1);
+    border: 1px solid var(--danger);
+    color: #fca5a5;
+}
+
+/* ===== LINKS ===== */
+.reg-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.reg-link:hover {
+    color: white;
+}
+
+/* ===== MUTED TEXT ===== */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box text-center">
+
+    <h2 class="mb-2 title">🛡️ AI Vault</h2>
+    <p class="text-muted mb-4 small">Login</p>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert py-2 small">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+
+        <input type="text" name="username" 
+               class="form-control mb-3" 
+               placeholder="Username" required>
+
+        <input type="password" name="password" 
+               class="form-control mb-4" 
+               placeholder="Password" required>
+
+        <button type="submit" class="btn btn-primary w-100 mb-3">
+            🔐 Authenticate
+        </button>
+
+    </form>
+
+    <div class="mt-2">
+        <span class="text-muted small">New to the Vault?</span> 
+        <a href="/register" class="reg-link ms-1">Create Account</a>
+    </div>
+
+</div>
+
+</body>
+</html>

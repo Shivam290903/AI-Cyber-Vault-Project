@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Vault | Register</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+:root {
+    --bg-main: #020617;
+    --bg-card: rgba(15, 23, 42, 0.75);
+    --primary: #14f1d9;
+    --secondary: #8b5cf6;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --text-main: #e6edf3;
+    --text-muted: #94a3b8;
+}
+
+/* ===== BODY ===== */
+body {
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ===== TITLE ===== */
+.title {
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(90deg, #14f1d9, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== INPUTS ===== */
+.form-control {
+    background: rgba(2,6,23,0.85);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-main);
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    background: rgba(2,6,23,0.95);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(20,241,217,0.3);
+    color: var(--text-main);
+}
+
+/* Placeholder fix */
+::placeholder {
+    color: #9ca3af !important;
+    opacity: 1;
+}
+
+/* ===== BUTTON ===== */
+.btn-primary {
+    background: linear-gradient(135deg, #14f1d9, #22c55e);
+    border: none;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(20,241,217,0.5);
+}
+
+/* ===== ALERT ===== */
+.alert {
+    background: rgba(245,158,11,0.1);
+    border: 1px solid var(--warning);
+    color: #fbbf24;
+}
+
+/* ===== LINKS ===== */
+.login-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.login-link:hover {
+    color: white;
+}
+
+/* ===== TEXT ===== */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2 class="title mb-2">🛡️ Create Account</h2>
+    <p class="text-center text-muted small mb-4"></p>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert py-2 small mb-3">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+
+        <input type="text" name="username" 
+               placeholder="Choose Username" 
+               class="form-control mb-3" required>
+
+        <input type="password" name="password" 
+               placeholder="Create Password" 
+               class="form-control mb-4" required>
+
+        <button type="submit" class="btn btn-primary w-100">
+            🚀 Register
+        </button>
+
+    </form>
+
+    <p class="mt-4 text-center small">
+        <span class="text-muted">Already have an account?</span>
+        <a href="/login" class="login-link ms-1">Login</a>
+    </p>
+
+</div>
+
+</body>
+</html>

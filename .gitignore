@@ -1,0 +1,25 @@
+vault.key
+vault_storage/
+uploads/
+__pycache__/
+*.pyc
+.env# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
+env/
+
+# Database
+vault.db
+
+# Encryption key
+vault.key
+
+# Upload folder
+VaultCloud/
+
+# OS files
+.DS_Store
+Thumbs.db
