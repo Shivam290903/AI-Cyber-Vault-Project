@@ -184,44 +184,40 @@ def is_luhn_valid(card_number):
 # --- UPDATE YOUR SCAN LOGIC ---
 def scan_content(text):
     leaks = []
-    
-    # 1. Refined Credit Card (Matches digits ONLY if preceded by CC keywords)
-    card_pattern = r'(?i)(?:card|cc|visa|master|debit|payment)[\s\w]*[:#-]?\s*(\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4})'
+
+    # Credit Card (simplified)
+    card_pattern = r'\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}'
     potential_cards = re.findall(card_pattern, text)
     for card in potential_cards:
         if is_luhn_valid(card):
             leaks.append("Verified Credit Card")
             break
 
-    # 2. Indian Bank Account Numbers (Usually 9-18 digits)
-    # Refinement: Look for 'Account No' or 'A/C' nearby to avoid random number hits
-    if re.search(r'(?i)(?:account|a/c|acc|acct)[\s.]{0,3}#?[:\s-]*(\d{9,18})', text):
+    # Bank Account
+    if re.search(r'(?i)(account|a/c|acc)[\s:#-]*(\d{9,18})', text):
         leaks.append("Bank Account Number")
 
-    # 3. IFSC Codes (Format: 4 Alpha, 0, 6 Alphanumeric)
+    # IFSC
     if re.search(r'[A-Z]{4}0[A-Z0-9]{6}', text):
         leaks.append("Bank IFSC Code")
 
-    # 4. Cheque Number (6 digits usually in quotes or at bottom)
-    # Refinement: Look for the word 'Cheque' nearby
-    if re.search(r'(?i)cheque[\s\w]*[:#-]?\s*(\d{6})', text):
-        leaks.append("Cheque Number")
-
-    # 5. Passbook/Customer ID (Usually alpha-numeric 8-12 chars)
-    if re.search(r'(?i)(?:cust|customer|passbook|cif)[\s\w]*[:#-]?\s*([a-zA-Z0-9]{8,12})', text):
-        leaks.append("Passbook/CIF Detail")
-
-    # 6. Government ID (PAN Card)
-    if re.search(r'[A-Z]{5}[0-9]{4}[A-Z]{1}', text):
+    # PAN
+    if re.search(r'[A-Z]{5}[0-9]{4}[A-Z]', text):
         leaks.append("PAN Card")
 
-    # 7. System Secrets (API Keys/Passwords)
-    if re.search(r'(?i)(password|secret|apikey|token)[\s:=]+[\'"]?([a-zA-Z0-9_-]{16,})[\'"]?', text):
-        leaks.append("System Secret/Token")
-    #8. Aadhar Number
-    if re.search(r'\b\d{4}\s\d{4}\s\d{4}\b', text):
+    # Aadhaar (fixed)
+    if re.search(r'\d{4}[\s-]?\d{4}[\s-]?\d{4}', text):
         leaks.append("Aadhaar Number")
 
+    # Email
+    if re.search(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', text):
+        leaks.append("Email")
+
+    # Secrets
+    if re.search(r'(?i)(password|secret|apikey|token)', text):
+        leaks.append("System Secret")
+
+    return leaks
     
 
     return leaks
