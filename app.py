@@ -24,7 +24,9 @@ db = SQLAlchemy(app)
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Storage setup
-UPLOAD_FOLDER = "C:\\Users\\imshi\\OneDrive\\VaultCloud" 
+# UPLOAD_FOLDER = "C:\\Users\\imshi\\OneDrive\\VaultCloud" 
+# os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+UPLOAD_FOLDER = os.path.join(os.getcwd(), "VaultCloud")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # --- LOGIN MANAGER ---
