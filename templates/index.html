@@ -1,300 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>AI Cyber Vault | Home</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-:root {
-    --bg-main: #020617;
-    --bg-card: rgba(15, 23, 42, 0.75);
-    --primary: #14f1d9;
-    --secondary: #8b5cf6;
-    --danger: #ef4444;
-    --text-main: #e6edf3;
-    --text-muted: #94a3b8;
-}
-
-/* ===== BODY ===== */
-body {
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    color: var(--text-main);
-    font-family: 'Inter', sans-serif;
-}
-
-/* ===== NAVBAR ===== */
-.navbar {
-    backdrop-filter: blur(12px);
-    background: rgba(2, 6, 23, 0.85);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.navbar-brand {
-    font-weight: 700;
-    background: linear-gradient(90deg, #14f1d9, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* ===== GLASS ===== */
-.glass {
-    background: var(--bg-card);
-    backdrop-filter: blur(18px);
-    border-radius: 1rem;
-    padding: 2rem;
-    border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    transition: 0.3s;
-}
-
-.glass:hover {
-    transform: translateY(-4px);
-}
-
-/* ===== UPLOAD ===== */
-.upload-box {
-    border: 2px dashed rgba(20,241,217,0.4);
-    border-radius: 12px;
-    padding: 35px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-    background: rgba(20,241,217,0.03);
-}
-
-.upload-box:hover {
-    border-color: var(--primary);
-    background: rgba(20,241,217,0.08);
-    box-shadow: 0 0 20px rgba(20,241,217,0.2);
-}
-
-/* ===== FILE CARDS ===== */
-.file-card {
-    background: rgba(2, 6, 23, 0.85);
-    border: 1px solid rgba(139,92,246,0.2);
-    border-radius: 0.75rem;
-    transition: 0.3s;
-}
-
-.file-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--secondary);
-    box-shadow: 0 0 20px rgba(139,92,246,0.3);
-}
-
-/* ===== BUTTONS ===== */
-.btn-primary {
-    background: linear-gradient(135deg, #14f1d9, #22c55e);
-    border: none;
-    font-weight: 600;
-}
-
-.btn-primary:hover {
-    box-shadow: 0 0 15px rgba(20,241,217,0.5);
-}
-
-.btn-outline-info {
-    border-color: var(--primary);
-    color: var(--primary);
-}
-
-.btn-outline-info:hover {
-    background: var(--primary);
-    color: #020617;
-}
-
-.btn-outline-danger {
-    border-color: var(--danger);
-    color: var(--danger);
-}
-
-.btn-outline-danger:hover {
-    background: var(--danger);
-    color: white;
-}
-
-/* ===== TEXT FIX ===== */
-.text-muted {
-    color: var(--text-muted) !important;
-}
-
-::placeholder {
-    color: #9ca3af !important;
-    opacity: 1;
-}
-
-/* ===== ALERT ===== */
-.alert {
-    background: rgba(20,241,217,0.08);
-    border: 1px solid var(--primary);
-    color: var(--primary);
-}
-
-/* ===== SCROLL ===== */
-.vault-container {
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.vault-container::-webkit-scrollbar {
-    width: 6px;
-}
-.vault-container::-webkit-scrollbar-thumb {
-    background: var(--primary);
-}
-
-/* ===== CLOSE BUTTON ===== */
-.btn-close {
-    filter: invert(1);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cyber Vault | Secure Storage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { 
+            --bg-main: #020617; 
+            --bg-card: rgba(15, 23, 42, 0.8); 
+            --primary: #14f1d9; 
+            --secondary: #8b5cf6; 
+            --text-main: #e6edf3; 
+        }
+        body { 
+            background: radial-gradient(circle at top, #0f172a, #020617); 
+            color: var(--text-main); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        .navbar { backdrop-filter: blur(10px); background: rgba(2, 6, 23, 0.8); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .glass { 
+            background: var(--bg-card); 
+            backdrop-filter: blur(15px); 
+            border-radius: 1.2rem; 
+            padding: 2rem; 
+            border: 1px solid rgba(255,255,255,0.08); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+        }
+        .upload-box { 
+            border: 2px dashed rgba(20,241,217,0.3); 
+            border-radius: 15px; 
+            padding: 40px 20px; 
+            text-align: center; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            display: block;
+        }
+        .upload-box:hover { 
+            border-color: var(--primary); 
+            background: rgba(20,241,217,0.05); 
+        }
+        .btn-primary { background: linear-gradient(135deg, #14f1d9, #22c55e); border: none; font-weight: 600; color: #020617; }
+        .btn-primary:hover { transform: scale(1.02); opacity: 0.9; }
+        .file-list { max-height: 400px; overflow-y: auto; padding-right: 5px; }
+        .file-card { 
+            background: rgba(255,255,255,0.03); 
+            border-radius: 12px; 
+            margin-bottom: 10px; 
+            transition: 0.2s;
+            border: 1px solid transparent;
+        }
+        .file-card:hover { border-color: var(--secondary); background: rgba(255,255,255,0.06); }
+        .alert { border: none; border-radius: 10px; background: rgba(20, 241, 217, 0.1); color: var(--primary); border: 1px solid var(--primary); }
+    </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-dark mb-5 sticky-top">
+<nav class="navbar navbar-dark mb-4 sticky-top">
     <div class="container">
-        <span class="navbar-brand">🛡️ AI CYBER VAULT</span>
-
+        <span class="navbar-brand fw-bold">🛡️ AI CYBER VAULT</span>
         <div class="d-flex align-items-center">
             {% if current_user.username == 'admin' %}
-            <a href="/audit-logs" class="btn btn-sm btn-outline-warning me-3">Admin Logs</a>
+                <a href="/audit-logs" class="btn btn-sm btn-outline-warning me-3">Admin Logs</a>
             {% endif %}
-
             <span class="me-3 small">👤 {{ current_user.username }}</span>
             <a href="/logout" class="btn btn-sm btn-outline-danger">Logout</a>
         </div>
     </div>
 </nav>
 
-<!-- MAIN -->
 <div class="container">
-
-<!-- Alerts -->
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-dismissible fade show mb-4">
-        {{ message }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    {% endfor %}
-{% endif %}
-{% endwith %}
-
-<div class="row g-4">
-
-<!-- Upload Section -->
-<div class="col-md-4">
-<div class="glass">
-
-<h4 class="mb-3">📤 Upload</h4>
-
-<form action="/upload" method="POST" enctype="multipart/form-data">
-
-<!-- <label class="upload-box w-100">
-<input type="file" name="file" hidden required>
-<p class="mb-1">Drag & Drop or Click</p>
-<small class="text-muted">Encrypted instantly 🔐</small>
-</label> -->
-<label class="upload-box w-100" id="uploadBox">
-    <input type="file" name="file" id="fileInput" hidden required>
-
-    <p id="uploadText" class="mb-1">
-        Drag & Drop or Click
-    </p>
-
-    <small id="uploadSubText" class="text-muted">
-        Encrypted instantly 🔐
-    </small>
-</label>
-
-<button class="btn btn-primary w-100 mt-3">Upload Securely</button>
-
-</form>
-
-</div>
-</div>
-
-<!-- Vault Section -->
-<div class="col-md-8">
-<div class="glass">
-
-<!-- <h4 class="mb-3">🔐 Vault</h4>
-
-<div class="vault-container">
-<div style="max-height:300px; overflow-y:auto;"></div>
-
-{% if files %}
-{% for file in files %}
-<div class="file-card p-3 d-flex justify-content-between align-items-center">
-
-<div>
-<strong>📄 {{ file.filename }}</strong><br>
-<small class="text-muted">Encrypted File</small>
-</div>
-
-<a href="/download/{{ file.id }}" class="btn btn-sm btn-outline-info px-4">
-Decrypt
-</a>
-
-</div>
-
-
-</div>
-{% endfor %}
-{% else %}
-<p class="text-muted text-center py-5">No files yet 🚫</p>
-{% endif %}
-
-</div>
-
-</div> -->
-<div class="glass">
-    <h4 class="mb-4">🔐 Vault</h4>
-
-    <div style="max-height: 350px; overflow-y: auto; padding-right: 5px;">
-
-        {% for file in files %}
-        <div class="p-3 mb-2 d-flex justify-content-between align-items-center"
-             style="background: rgba(255,255,255,0.03); border-radius: 10px;">
-
-            <div>
-                📄 <strong>{{ file.filename }}</strong><br>
-                <small class="text-muted">Encrypted File</small>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}{% for m in messages %}
+            <div class="alert alert-dismissible fade show mb-4">
+                {{ m }} <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
+        {% endfor %}{% endif %}
+    {% endwith %}
 
-            <a href="/download/{{ file.id }}" class="btn btn-sm btn-outline-info">
-                Decrypt
-            </a>
+    <div class="row g-4">
+        <!-- Left: Upload -->
+        <div class="col-md-4">
+            <div class="glass">
+                <h4 class="mb-3">📤 Secure Upload</h4>
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <label class="upload-box">
+                        <input type="file" name="file" id="fileInput" hidden required>
+                        <div id="uploadContent">
+                            <p class="fs-5 mb-1">Click to Browse</p>
+                            <small class="text-muted">AI scans for sensitive data before encryption</small>
+                        </div>
+                    </label>
+                    <button type="submit" class="btn btn-primary w-100 mt-3 py-2">Encrypt & Save</button>
+                </form>
+            </div>
         </div>
-        {% endfor %}
 
+        <!-- Right: Vault Content -->
+        <div class="col-md-8">
+            <div class="glass">
+                <h4 class="mb-4">🔐 Your Encrypted Vault</h4>
+                <div class="file-list">
+                    {% if files %}
+                        {% for file in files %}
+                        <div class="file-card p-3 d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="fs-5">📄 {{ file.filename }}</span><br>
+                                <small class="text-muted">Protected by AES-256</small>
+                            </div>
+                            <a href="/download/{{ file.id }}" class="btn btn-sm btn-outline-info px-4">Decrypt</a>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-center py-5">
+                            <p class="text-muted">The vault is empty. Upload your first secure file!</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-</div>
 
-</div>
-</div>
+<script>
+    const fileInput = document.getElementById("fileInput");
+    const uploadContent = document.getElementById("uploadContent");
+    fileInput.addEventListener("change", () => {
+        if (fileInput.files.length > 0) {
+            uploadContent.innerHTML = `<p class="fs-5 text-info mb-0">✅ ${fileInput.files[0].name}</p><small class="text-muted">Ready to be scanned</small>`;
+        }
+    });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-const fileInput = document.getElementById("fileInput");
-const uploadText = document.getElementById("uploadText");
-const uploadSubText = document.getElementById("uploadSubText");
-
-// When file is selected
-fileInput.addEventListener("change", function () {
-    if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
-
-        uploadText.textContent = file.name;
-        uploadSubText.textContent = "Ready to upload ✅";
-    }
-});
-</script>
 </body>
 </html>
