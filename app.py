@@ -22,10 +22,7 @@ db = SQLAlchemy(app)
 
 # OCR Path (Update this if your Tesseract location is different)
 # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-pytesseract.pytesseract.tesseract_cmd = os.getenv(
-    "TESSERACT_PATH",
-    "/usr/bin/tesseract"
-)
+pytesseract.pytesseract.tesseract_cmd = os.getenv("TESSERACT_PATH","/usr/bin/tesseract")
 print(pytesseract.get_tesseract_version())
 
 # Storage setup
