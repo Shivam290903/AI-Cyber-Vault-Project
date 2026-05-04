@@ -217,7 +217,7 @@ def scan_content(text):
     if re.search(r'(?i)(password|secret|apikey|token)', text):
         leaks.append("System Secret")
 
-    return leaks
+    
     
 
     return leaks
