@@ -245,6 +245,7 @@ def upload_file():
         if file_ext in ['png', 'jpg', 'jpeg', 'bmp']:
             optimize_image_for_ocr(temp_path) # Speeds up OCR
             extracted_text = pytesseract.image_to_string(Image.open(temp_path))
+            print("TEXT:", extracted_text[:200])
         else:
             with open(temp_path, 'r', errors='ignore') as f:
                 extracted_text = f.read(10000)
